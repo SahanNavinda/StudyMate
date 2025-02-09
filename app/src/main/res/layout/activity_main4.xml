@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <!-- Header Image -->
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_dialog_dialer" />
+
+        <ImageView
+            android:id="@+id/imageViewHeader"
+            android:layout_width="312dp"
+            android:layout_height="77dp"
+            android:src="@drawable/ic_4" />
+
+      </LinearLayout>
+
+      <!-- First Row of Items -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="12dp"
+          android:layout_marginEnd="24dp"
+          android:orientation="horizontal"
+          android:visibility="visible">
+
+        <!-- First ConstraintLayout Item -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_background1"
+            android:clickable="true">
+
+          <ImageView
+              android:id="@+id/imageView1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/btn_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.31" />
+
+          <ImageView
+              android:id="@+id/imageViewLight1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/light_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+
+          <TextView
+              android:id="@+id/textView1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="TextView 1"
+              app:layout_constraintEnd_toEndOf="@+id/imageView1"
+              app:layout_constraintHorizontal_bias="0.485"
+              app:layout_constraintStart_toStartOf="@+id/imageView1"
+              app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Second ConstraintLayout Item -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_background1"
+            android:clickable="true">
+
+          <ImageView
+              android:id="@+id/imageView2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/btn_2"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.31" />
+
+          <ImageView
+              android:id="@+id/imageViewLight2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/light_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+
+          <TextView
+              android:id="@+id/textView2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="4dp"
+              android:text="TextView 2"
+              app:layout_constraintEnd_toEndOf="@+id/imageView2"
+              app:layout_constraintHorizontal_bias="0.485"
+              app:layout_constraintStart_toStartOf="@+id/imageView2"
+              app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </LinearLayout>
+
+      <!-- Second Row of Items -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="12dp"
+          android:layout_marginEnd="24dp"
+          android:layout_marginBottom="12dp"
+          android:orientation="horizontal">
+
+        <!-- Third ConstraintLayout Item -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_background1"
+            android:clickable="true">
+
+          <ImageView
+              android:id="@+id/imageView3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/btn_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.31" />
+
+          <ImageView
+              android:id="@+id/imageViewLight3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/light_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+
+          <TextView
+              android:id="@+id/textView3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="TextView 3"
+              android:layout_marginTop="4dp"
+              app:layout_constraintEnd_toEndOf="@+id/imageView3"
+              app:layout_constraintHorizontal_bias="0.485"
+              app:layout_constraintStart_toStartOf="@+id/imageView3"
+              app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Fourth ConstraintLayout Item -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_background1"
+            android:clickable="true">
+
+          <ImageView
+              android:id="@+id/imageView4"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/btn_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintVertical_bias="0.31" />
+
+          <ImageView
+              android:id="@+id/imageViewLight4"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/light_1"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+
+          <TextView
+              android:id="@+id/textView4"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="TextView 4"
+              android:layout_marginTop="4dp"
+              app:layout_constraintEnd_toEndOf="@+id/imageView4"
+              app:layout_constraintHorizontal_bias="0.485"
+              app:layout_constraintStart_toStartOf="@+id/imageView4"
+              app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </LinearLayout>
+
+      <!-- Quiz Section -->
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cardCornerRadius="12dp"
+          app:cardElevation="4dp"
+          android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+          <TextView
+              android:id="@+id/textView6"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Check Your Knowledge"
+              android:textSize="20sp"
+              android:textColor="@color/black"
+              android:textStyle="bold"
+              android:layout_marginBottom="16dp"/>
+
+          <ImageButton
+              android:id="@+id/imageButton3"
+              android:layout_width="match_parent"
+              android:layout_height="200dp"
+              android:background="@android:color/holo_orange_dark"
+              android:contentDescription="Quiz button image"
+              android:scaleType="centerCrop"
+              android:src="@drawable/text_caption_presenting_quiz_word_for_form_of_game_in_which_the_players_attempt_to_answer_questions_correctly_businesswoman_in_suit_holding_new_2ka26nf" />
+        </LinearLayout>
+      </androidx.cardview.widget.CardView>
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:background="@drawable/vecteezy_white_and_orange_modern_background_11171103"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="63dp"
+        android:src="@drawable/read" />
+
+    <TextView
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:text="Study Mate"
+        android:textColor="@android:color/system_accent1_1000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="92dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
+        android:text="Hello Sahan"
+        android:textColor="@color/material_dynamic_neutral_variant0"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity5"
+    android:id="@+id/main"
+    android:background="@color/background_color">
+
+  <!-- Title TextView -->
+
+  <!-- Score TextView -->
+
+  <TextView
+      android:id="@+id/tvQuizTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="92dp"
+      android:text="Quiz"
+      android:textColor="@color/primary_text_color"
+      android:textSize="26sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/tvScore"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Score: 0"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/secondary_text_color"
+      app:layout_constraintTop_toBottomOf="@id/tvQuizTitle"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="16dp" />
+
+  <!-- Question TextView -->
+  <TextView
+      android:id="@+id/tvQuestion"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="What is the capital of France?"
+      android:textSize="18sp"
+      android:textColor="@color/question_text_color"
+      app:layout_constraintTop_toBottomOf="@id/tvScore"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="32dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp"
+      android:gravity="center" />
+
+  <!-- RadioGroup for options -->
+  <RadioGroup
+      android:id="@+id/radioGroup"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/tvQuestion"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:orientation="vertical"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp">
+
+    <!-- Option 1 -->
+    <RadioButton
+        android:id="@+id/rbOption1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paris"
+        android:textColor="@color/option_text_color"
+        android:background="@drawable/radio_button_style"/>
+
+    <!-- Option 2 -->
+    <RadioButton
+        android:id="@+id/rbOption2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="London"
+        android:textColor="@color/option_text_color"
+        android:background="@drawable/radio_button_style"/>
+
+    <!-- Option 3 -->
+    <RadioButton
+        android:id="@+id/rbOption3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berlin"
+        android:textColor="@color/option_text_color"
+        android:background="@drawable/radio_button_style"/>
+
+    <!-- Option 4 -->
+    <RadioButton
+        android:id="@+id/rbOption4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Madrid"
+        android:textColor="@color/option_text_color"
+        android:background="@drawable/radio_button_style"/>
+  </RadioGroup>
+
+  <!-- Next Button -->
+  <Button
+      android:id="@+id/btnNext"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Next"
+      android:textColor="@color/white"
+      android:background="@drawable/rounded_button"
+      app:layout_constraintTop_toBottomOf="@id/radioGroup"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="24dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp" />
+
+  <!-- Submit Button -->
+  <Button
+      android:id="@+id/btnSubmit"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Submit Quiz"
+      android:textColor="@color/white"
+      android:background="@drawable/rounded_button"
+      app:layout_constraintTop_toBottomOf="@id/btnNext"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp"
+      android:visibility="gone" />
+
+  <ImageView
+      android:id="@+id/imageView13"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:rotationX="171"
+      android:rotationY="-184"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0"
+      app:srcCompat="@drawable/top_tight" />
+
+  <ImageView
+      android:id="@+id/imageView14"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/top_tight" />
+
+  <ImageView
+      android:id="@+id/imageView15"
+      android:layout_width="231dp"
+      android:layout_height="144dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btnNext"
+      app:srcCompat="@drawable/quiz" />
+</androidx.constraintlayout.widget.ConstraintLayout>
