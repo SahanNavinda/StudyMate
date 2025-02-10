@@ -12,13 +12,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity3 extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_login);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -31,7 +31,7 @@ public class MainActivity3 extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
+                Intent intent = new Intent(LoginActivity.this, Home.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class MainActivity3 extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity3.this, Navi.class);
+                Intent intent = new Intent(LoginActivity.this, SignUp.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to go back to LoginActivity
-                Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
+                Intent intent = new Intent(LoginActivity.this,ForgotPass.class);
                 startActivity(intent);
                 finish(); // Optional: To close the current activity (Forgot Password) so the user cannot navigate back to it.
             }

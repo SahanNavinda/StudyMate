@@ -18,13 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Open Drawer" />
+            android:text="Open Drawer"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/imageViewHeader"
             android:layout_width="146dp"
             android:layout_height="wrap_content"
-            android:background="#F8F7F7"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_4" />
 
         <FrameLayout
@@ -58,10 +59,10 @@
         <!-- First Row of Items -->
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="338dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:orientation="horizontal"
             android:visibility="visible">
@@ -70,6 +71,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="170dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/btn_background1"
@@ -77,8 +79,8 @@
 
                 <ImageView
                     android:id="@+id/imageView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="91dp"
+                    android:layout_height="63dp"
                     android:src="@drawable/btn_1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +112,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="30dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/btn_background1"
                 android:clickable="true">
@@ -130,7 +132,7 @@
                     android:id="@+id/imageViewLight2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/light_1"
+                    android:src="@drawable/light_4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -149,29 +151,30 @@
 
         <!-- Second Row of Items -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="338dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginBottom="12dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <!-- Third ConstraintLayout Item -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="0.5"
-                android:background="@drawable/btn_background1"
+                android:background="@drawable/btn_background2"
                 android:clickable="true">
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/btn_1"
+                    android:src="@drawable/btn_3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -182,7 +185,7 @@
                     android:id="@+id/imageViewLight3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/light_1"
+                    android:src="@drawable/light_4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -202,7 +205,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="170dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="50dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/btn_background1"
                 android:clickable="true">
@@ -211,7 +215,7 @@
                     android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/btn_1"
+                    android:src="@drawable/ic_3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -243,6 +247,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
@@ -263,14 +268,30 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <ImageButton
-                    android:id="@+id/imageButton3"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@android:color/holo_orange_dark"
-                    android:contentDescription="Quiz button image"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/text_caption_presenting_quiz_word_for_form_of_game_in_which_the_players_attempt_to_answer_questions_correctly_businesswoman_in_suit_holding_new_2ka26nf" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/chatting" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/system_outline_disabled"
+                        android:contentDescription="Quiz button image"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/quiz_3d" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
@@ -287,7 +308,7 @@
         android:visibility="visible"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu"
-        app:itemIconTint="@color/lavender"
+        app:itemIconTint="#D35027"
         app:itemTextColor="@color/lavender"/>
 
 

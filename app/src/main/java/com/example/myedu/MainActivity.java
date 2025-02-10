@@ -3,6 +3,7 @@ package com.example.myedu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -27,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Find ImageButton and set click listener
-        ImageButton imageButton = findViewById(R.id.imageButton);
+        Button imageButton = findViewById(R.id.btnGetStarted);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Navigate to SecondActivity
-                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

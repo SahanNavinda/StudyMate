@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity5 extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 
     private TextView tvQuestion, tvScore;
     private RadioGroup radioGroup;
@@ -38,7 +38,7 @@ public class MainActivity5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5); // Your layout XML
+        setContentView(R.layout.activity_quiz1); // Your layout XML
 
         tvQuestion = findViewById(R.id.tvQuestion);
         tvScore = findViewById(R.id.tvScore); // TextView for displaying score
@@ -83,7 +83,7 @@ public class MainActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Show the final score as a Toast
-                Toast.makeText(MainActivity5.this, "Your Final Score: " + score + "/" + questions.length, Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizActivity.this, "Your Final Score: " + score + "/" + questions.length, Toast.LENGTH_SHORT).show();
                 //finish(); // Close the quiz activity after submission
             }
         });

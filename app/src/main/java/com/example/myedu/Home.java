@@ -9,14 +9,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
-public class Navi extends AppCompatActivity {
+public class Home extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navi);
+        setContentView(R.layout.activity_home);
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -29,7 +29,7 @@ public class Navi extends AppCompatActivity {
         });
         ImageButton imageButton = findViewById(R.id.imageButton3);
         imageButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Navi.this, MainActivity5.class); // Navigate to MainActivity5
+            Intent intent = new Intent(Home.this, QuizActivity.class); // Navigate to MainActivity5
             startActivity(intent);
         });
 
@@ -39,7 +39,7 @@ public class Navi extends AppCompatActivity {
             if (id == R.id.nav_home) {
                 // Handle Home click
             } else if (id == R.id.nav_profile) {
-                Intent intent = new Intent(Navi.this, ProfileActivity.class);
+                Intent intent = new Intent(Home.this, ProfileActivity.class);
                 startActivity(intent);
             } else if (id == R.id.nav_settings) {
                 // Handle Settings click
@@ -56,25 +56,25 @@ public class Navi extends AppCompatActivity {
         // Set click listeners for the boxes
         box1.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Navi.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, QuizActivity6.class);
             startActivity(intent);
         });
 
         box2.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Navi.this, LessonActivity.class);
+            Intent intent = new Intent(Home.this, LessonActivity.class);
             startActivity(intent);
         });
 
         box3.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Navi.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, QuizActivity6.class);
             startActivity(intent);
         });
 
         box4.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Navi.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, QuizActivity6.class);
             startActivity(intent);
         });
     }

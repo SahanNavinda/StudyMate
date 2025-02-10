@@ -28,7 +28,7 @@ public class SignUp extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUp.this, MainActivity3.class);
+                Intent intent = new Intent(SignUp.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to go back to LoginActivity
-                Intent intent = new Intent(SignUp.this, MainActivity3.class);
+                Intent intent = new Intent(SignUp.this, LoginActivity.class);
                 startActivity(intent);
                 finish(); // Optional: To close the current activity (Forgot Password) so the user cannot navigate back to it.
             }

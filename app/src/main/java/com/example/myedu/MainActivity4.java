@@ -2,7 +2,6 @@ package com.example.myedu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -32,7 +31,7 @@ public class MainActivity4 extends AppCompatActivity {
         // Find ImageButton and set click listener for the Quiz button
         ImageButton imageButton = findViewById(R.id.imageButton3);
         imageButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity4.this, MainActivity5.class); // Navigate to MainActivity5
+            Intent intent = new Intent(MainActivity4.this, QuizActivity.class); // Navigate to MainActivity5
             startActivity(intent);
         });
 
