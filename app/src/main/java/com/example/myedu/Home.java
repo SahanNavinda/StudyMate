@@ -32,6 +32,11 @@ public class Home extends AppCompatActivity {
             Intent intent = new Intent(Home.this, QuizActivity.class); // Navigate to MainActivity5
             startActivity(intent);
         });
+        ImageButton imageButton1 = findViewById(R.id.imageButton5);
+        imageButton1.setOnClickListener(v -> {
+            Intent intent = new Intent(Home.this, QuizActivity.class); // Navigate to MainActivity5
+            startActivity(intent);
+        });
 
         // Set up the navigation item listener
         navigationView.setNavigationItemSelectedListener(item -> {
