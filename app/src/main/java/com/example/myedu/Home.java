@@ -61,7 +61,7 @@ public class Home extends AppCompatActivity {
         // Set click listeners for the boxes
         box1.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Home.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, LessonActivity.class);
             startActivity(intent);
         });
 
@@ -73,13 +73,13 @@ public class Home extends AppCompatActivity {
 
         box3.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Home.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, LessonActivity.class);
             startActivity(intent);
         });
 
         box4.setOnClickListener(v -> {
             // Navigate to the Quiz Activity (or any other activity you want)
-            Intent intent = new Intent(Home.this, QuizActivity6.class);
+            Intent intent = new Intent(Home.this, LessonActivity.class);
             startActivity(intent);
         });
     }
