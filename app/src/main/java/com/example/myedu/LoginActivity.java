@@ -2,9 +2,12 @@ package com.example.myedu;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +15,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
+
+    private EditText edtEmail, edtPassword;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,35 +34,55 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Find the button and set click listener
-        Button btnNext = findViewById(R.id.btnLogin);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Home.class);
-                startActivity(intent);
-            }
-        });
-        btnNext = findViewById(R.id.btnSignUp);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUp.class);
-                startActivity(intent);
-            }
-        });
-        TextView tvBackToLogin = findViewById(R.id.tvForgotPassword);
+        // Initialize FirebaseAuth
+        mAuth = FirebaseAuth.getInstance();
 
-        // Set click listener to navigate back to Login activity
-        tvBackToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an Intent to go back to LoginActivity
-                Intent intent = new Intent(LoginActivity.this,ForgotPass.class);
-                startActivity(intent);
-                finish(); // Optional: To close the current activity (Forgot Password) so the user cannot navigate back to it.
-            }
+        // Initialize views
+        edtEmail = findViewById(R.id.etEmail);      // Make sure you have these in your layout
+        edtPassword = findViewById(R.id.etPassword);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnSignUp = findViewById(R.id.btnSignUp);
+        TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
+
+        // Login Button Click
+        btnLogin.setOnClickListener(v -> loginUser());
+
+        // Sign Up Button Click
+        btnSignUp.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, SignUp.class);
+            startActivity(intent);
         });
 
+        // Forgot Password Text Click
+        tvForgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, ForgotPass.class);
+            startActivity(intent);
+        });
+    }
+
+    private void loginUser() {
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            edtEmail.setError("Email is required");
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            edtPassword.setError("Password is required");
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, Home.class));
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

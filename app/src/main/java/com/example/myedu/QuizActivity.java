@@ -1,7 +1,5 @@
 package com.example.myedu;
 
-
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.DocumentReference;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -38,10 +40,10 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz1); // Your layout XML
+        setContentView(R.layout.activity_quiz1);
 
         tvQuestion = findViewById(R.id.tvQuestion);
-        tvScore = findViewById(R.id.tvScore); // TextView for displaying score
+        tvScore = findViewById(R.id.tvScore);
         radioGroup = findViewById(R.id.radioGroup);
         btnNext = findViewById(R.id.btnNext);
         btnSubmit = findViewById(R.id.btnSubmit);
@@ -50,51 +52,42 @@ public class QuizActivity extends AppCompatActivity {
         setQuestion();
 
         // Next Button Click Listener
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Check if the selected answer is correct
-                int selectedAnswer = radioGroup.getCheckedRadioButtonId();
-                if (selectedAnswer != -1) {
-                    RadioButton selectedRadioButton = findViewById(selectedAnswer);
-                    int answerIndex = radioGroup.indexOfChild(selectedRadioButton);
-                    if (answerIndex == correctAnswers[currentQuestionIndex]) {
-                        score++;
-                    }
+        btnNext.setOnClickListener(v -> {
+            int selectedAnswer = radioGroup.getCheckedRadioButtonId();
+            if (selectedAnswer != -1) {
+                RadioButton selectedRadioButton = findViewById(selectedAnswer);
+                int answerIndex = radioGroup.indexOfChild(selectedRadioButton);
+                if (answerIndex == correctAnswers[currentQuestionIndex]) {
+                    score++;
                 }
+            }
 
-                // Update the score TextView
-                tvScore.setText("Score: " + score);
+            // Update the score TextView
+            tvScore.setText("Score: " + score);
 
-                // Move to the next question
-                currentQuestionIndex++;
+            // Move to the next question
+            currentQuestionIndex++;
 
-                if (currentQuestionIndex < questions.length) {
-                    setQuestion();
-                } else {
-                    btnNext.setVisibility(View.GONE);
-                    btnSubmit.setVisibility(View.VISIBLE);
-                }
+            if (currentQuestionIndex < questions.length) {
+                setQuestion();
+            } else {
+                btnNext.setVisibility(View.GONE);
+                btnSubmit.setVisibility(View.VISIBLE);
             }
         });
 
         // Submit Button Click Listener
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show the final score as a Toast
-                Toast.makeText(QuizActivity.this, "Your Final Score: " + score + "/" + questions.length, Toast.LENGTH_SHORT).show();
-                //finish(); // Close the quiz activity after submission
-            }
+        btnSubmit.setOnClickListener(v -> {
+            Toast.makeText(QuizActivity.this, "Your Final Score: " + score + "/" + questions.length, Toast.LENGTH_SHORT).show();
+            saveBestScore(score);  // Save the best score after quiz completion
         });
     }
 
     private void setQuestion() {
         tvQuestion.setText(questions[currentQuestionIndex]);
-        // Reset the radio group (deselect any selected option)
+
         radioGroup.clearCheck();
 
-        // Set the options
         RadioButton rbOption1 = (RadioButton) radioGroup.getChildAt(0);
         RadioButton rbOption2 = (RadioButton) radioGroup.getChildAt(1);
         RadioButton rbOption3 = (RadioButton) radioGroup.getChildAt(2);
@@ -104,5 +97,27 @@ public class QuizActivity extends AppCompatActivity {
         rbOption2.setText(options[currentQuestionIndex][1]);
         rbOption3.setText(options[currentQuestionIndex][2]);
         rbOption4.setText(options[currentQuestionIndex][3]);
+    }
+
+    private void saveBestScore(int score) {
+        // Get the current logged-in user's UID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Create a User object with the new score
+        DocumentReference userRef = FirebaseFirestore.getInstance().collection("Users").document(userId);
+
+        // Update only the best score if it is higher
+        userRef.update("bestScore", Math.max(score, getCurrentBestScore(userRef)))
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(QuizActivity.this, "Best score updated!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(QuizActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private int getCurrentBestScore(DocumentReference userRef) {
+        // Retrieve current best score logic (this can be implemented as required)
+        return 0;  // Return 0 or actual current best score from Firestore if needed.
     }
 }

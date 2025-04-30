@@ -9,9 +9,10 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_marginBottom="19dp"
+        android:id="@+id/navProfileImage"
         android:layout_width="95dp"
         android:layout_height="63dp"
+        android:layout_marginBottom="19dp"
         android:src="@drawable/user_1" />
 
     <TextView
@@ -22,11 +23,25 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="92dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="16dp"
-        android:text="Hello Sahan,"
-        android:textColor="@color/material_dynamic_neutral_variant0"
-        android:textSize="14sp" />
+        android:id="@+id/navUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:importantForAccessibility="yes"
+        android:text="Hello User,"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/navBestScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Best Score: 0"
+        android:textColor="#090909"
+        android:textSize="12sp" />
+
 
 </LinearLayout>

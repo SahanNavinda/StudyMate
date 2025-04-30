@@ -1,7 +1,8 @@
-plugins {
+ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -54,12 +55,39 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation(libs.androidx.cardview)
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.appcompat:appcompat:1.3.1")
+
+
+
+
     // Navigation Drawer dependencies
     implementation(libs.androidx.navigation.compose) // For Jetpack Compose Navigation
     implementation(libs.androidx.navigation.fragment.ktx) // For Fragment-based Navigation
-    implementation(libs.androidx.navigation.ui.ktx) // For Navigation UI
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage) // For Navigation UI
 
     // Testing dependencies
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    // Firebase Firestore
+
+
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,3 +96,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
